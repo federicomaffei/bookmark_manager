@@ -16,7 +16,7 @@ RSpec.configure do |config|
   config.order = 'random'
 end
 
-require 'server'
+require './server'
 require 'capybara/rspec'
 require 'sinatra'
 require 'database_cleaner'
