@@ -7,10 +7,10 @@ class User
 	property :id, Serial
 	property :email, String, :unique => true, :message => "This email is already taken"
 	property :password_digest, Text
-	# property :password_token, Text
-	# property :password_token_password, Text
+	property :password_token, Text
+	property :password_token_time, Text
 
-	attr_reader :password
+	attr_reader :password, :password_token, :password_token_time	
 	attr_accessor :password_confirmation
 	
 	validates_confirmation_of :password, :message => "Sorry, your passwords don't match"

@@ -69,13 +69,13 @@ post '/sessions' do
   end
 end
 
-# post '/recovery' do
-# 	email = params[:email]
-# 	user = User.first(:email => email) # avoid having to memorise ascii codes
-# 	user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
-# 	user.password_token_timestamp = Time.now
-# 	user.save
-# end
+post '/recovery' do
+	email = params[:email]
+	user = User.first(:email => email) # avoid having to memorise ascii codes
+	user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
+	user.password_token_timestamp = Time.now
+	user.save
+end
 
 delete '/sessions' do
 	session[:user_id] = nil

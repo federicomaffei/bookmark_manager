@@ -3,7 +3,11 @@ require 'spec_helper'
 feature "User signs in" do
 
   before(:each) do
-    User.create(:email => "test@test.com", :password => 'test', :password_confirmation => 'test')
+    User.create(:email => "test@test.com", 
+      :password => 'test', 
+      :password_confirmation => 'test', 
+      :password_token => '', 
+      :password_token_time => '')
   end
 
 
@@ -25,12 +29,15 @@ end
 feature "User signs out" do
 
   before(:each) do
-    User.create(:email => "test@test.com", :password => 'test', :password_confirmation => 'test')
+    User.create(:email => "test@test.com", 
+      :password => 'test', 
+      :password_confirmation => 'test', 
+      :password_token => '', 
+      :password_token_time => '')
   end
 
   scenario 'while being signed in' do
     sign_in('test@test.com', 'test')
-     save_and_open_page
     click_button 'Sign out'
     expect(page).to have_content("Good bye!") # where does this message go?
     expect(page).not_to have_content("Welcome, test@test.com")
@@ -58,7 +65,7 @@ feature "User signs up" do
   end
   
   scenario "with a password that doesn't match" do
-    lambda { sign_up('a@a.com', 'pass', 'wrong') }.should change(User, :count).by(0) 
+    lambda { sign_up('a@a.com', 'pass', 'wrong') }.should change(User, :count).by(0)
     expect(current_path).to eq('/users')   
     expect(page).to have_content("Sorry, your passwords don't match")
   end
