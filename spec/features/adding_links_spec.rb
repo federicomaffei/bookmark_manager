@@ -22,6 +22,7 @@ feature "User adds a new link" do
 
   scenario "with a few tags" do
     visit "/"
+    save_and_open_page
     add_link("http://www.makersacademy.com/", 
       "Makers Academy", 
       ['education', 'ruby'])    

@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'data_mapper'
+require 'rack-flash'
 require './lib/link'
 require './lib/user'
 require './lib/tag'
@@ -9,6 +10,7 @@ require_relative 'data_mapper_setup'
 
 enable :sessions
 set :session_secret, 'super secret'
+use Rack::Flash
 
 get '/' do
 	@links = Link.all
@@ -22,10 +24,7 @@ get '/tags/:text' do
 end
 
 get '/users/new' do
-  # note the view is in views/users/new.erb
-  # we need the quotes because otherwise
-  # ruby would divide the symbol :users by the
-  # variable new (which makes no sense)
+  @user = User.new
   erb :"users/new"
 end
 
@@ -40,15 +39,14 @@ post '/links' do
 end
 
 post '/users' do
-	User.create(:email => params[:email], :password => params[:password])
-	session[:user_id] = user.id
-	redirect to('/')
+	@user = User.new(:email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation])
+	if @user.save
+		session[:user_id] = @user.id
+		redirect to('/')
+	else 
+		flash.now[:errors] = @user.errors.full_messages
+		erb :"users/new"
+	end
 end
-
-
-
-
-
-
 
 
