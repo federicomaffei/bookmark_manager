@@ -32,6 +32,10 @@ get '/sessions/new' do
 	erb :"sessions/new"
 end
 
+get "/users/reset_password/:token" do
+	
+end
+
 post '/links' do
 	url = params["url"]
 	title = params["title"]
@@ -63,6 +67,14 @@ post '/sessions' do
     flash[:errors] = ["The email or password is incorrect"]
     erb :"sessions/new"
   end
+end
+
+post '/recovery' do
+	email = params[:email]
+	user = User.first(:email => email) # avoid having to memorise ascii codes
+	user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
+	user.password_token_timestamp = Time.now
+	user.save
 end
 
 delete '/sessions' do
