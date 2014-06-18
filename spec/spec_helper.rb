@@ -1,6 +1,7 @@
 require './app/server'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'features/helpers/session'
 
 ENV["RACK_ENV"] = 'test' # because we need to know what database to work with
 
@@ -44,4 +45,8 @@ RSpec.configure do |config|
 		DatabaseCleaner.clean
 	end
 
+end
+
+RSpec.configure do |c|
+  c.include SessionHelper
 end
