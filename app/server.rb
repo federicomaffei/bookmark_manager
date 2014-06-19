@@ -32,6 +32,10 @@ get '/sessions/new' do
 	erb :"sessions/new"
 end
 
+get '/users/reset_password' do
+	erb :"users/reset_password"
+end
+
 get "/users/reset_password/:token" do
 	
 end
@@ -73,13 +77,14 @@ post '/recovery' do
 	email = params[:email]
 	user = User.first(:email => email) # avoid having to memorise ascii codes
 	user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
-	user.password_token_timestamp = Time.now
+	user.password_token_time = Time.now
 	user.save
+	flash[:notice] = ['An email with the instructions to reset the password has been sent.']
 end
 
 delete '/sessions' do
-	session[:user_id] = nil
 	flash[:notice] = ['Good bye!']
+	session[:user_id] = nil
 	redirect to('/')
 end	
 
