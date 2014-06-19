@@ -37,7 +37,17 @@ get '/users/reset_password' do
 end
 
 get "/users/reset_password/:token" do
-	
+	@token = params[:token]
+	user = User.first(:password_token => @token)
+	user ? redirect_to_new_password : error_message_display
+end
+
+def redirect_to_new_password
+	erb :'users/new_password'	
+end
+
+def error_message_display
+	flash[:notice] = ['This link is not valid anymore']
 end
 
 post '/links' do
@@ -46,7 +56,7 @@ post '/links' do
 	tags = params["tags"].split(" ").map do |tag|
 		Tag.first_or_create(:text => tag)
 	end
-	Link.create(:url => url, :title => title, :tags => tags)
+	Link.create(:url => url.gsub('http://', ''), :title => title, :tags => tags)
 	redirect to('/')
 end
 
@@ -81,6 +91,13 @@ post '/recovery' do
 	user.save
 	flash[:notice] = ['An email with the instructions to reset the password has been sent.']
 end
+
+post '/new_password' do
+	user = User.first(:password_token => params[:token])
+	user.update(:password => params[:password], :password_confirmation => params[:password_confirmation], :password_token => nil)
+	user.save
+	flash[:notice] = ['The password has been changed']
+end		
 
 delete '/sessions' do
 	flash[:notice] = ['Good bye!']

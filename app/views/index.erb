@@ -3,7 +3,7 @@
 <body>
 	<ul>
 		<% @links.each do |link| %>
-		<li><a href="<%= link.url %>"><%= link.title %></a></li>
+		<li><a href="http://<%= link.url %>"><%= link.title %></a></li>
 		<% end %>
 	</ul>
 	<div id="new-link">
