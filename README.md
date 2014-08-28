@@ -16,7 +16,8 @@ The domain model, as presented to us, can be described as so:
 >A user will be able to:
 >* Sign up to the service.
 >* Sign in to the service.
->* Edit the password
+>* Edit the password.
+
 ====================
 
 * The features I implemented via TDD are:
