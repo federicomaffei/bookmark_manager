@@ -88,6 +88,7 @@ post '/recovery' do
 	user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
 	user.password_token_time = Time.now
 	user.save
+	user.send_simple_message
 	flash[:notice] = "An email with the instructions to reset the password has been sent."
 end
 

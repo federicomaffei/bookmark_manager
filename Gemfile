@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'bcrypt'
 gem 'rack-flash3'
 gem "launchy"
+gem "rest-client"
 
 group :development, :test do
 	gem "rspec"

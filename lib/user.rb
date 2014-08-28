@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'rest-client'
 
 class User
 
@@ -28,4 +29,14 @@ class User
   			nil
   		end
   	end
-end
+
+  	def send_simple_message
+  		key = ENV["MAILGUN_API_KEY"]
+  		RestClient.post "https://api:#{key}"\
+  		"@api.mailgun.net/v2/app28979029.mailgun.org/messages",
+  		:from => "Mailgun Sandbox <postmaster@app28979029.mailgun.org>",
+  		:to => "Bookmark Manager User <#{email}>",
+  		:subject => "Password recovery link",
+  		:text => "To reset password, visit http://localhost:9393/users/reset_password/#{password_token}"
+  	end
+  end
