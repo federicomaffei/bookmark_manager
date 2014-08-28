@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe Link do
-
   context "Demonstration of how datamapper works" do
-
     # This is not a real test, it's simply a demo of how it works
     it 'should be created and then retrieved from the db' do
       # In the beginning our database is empty, so there are no links

@@ -6,7 +6,6 @@ require './lib/user'
 require './lib/tag'
 require_relative 'helpers/user_helper'
 require_relative 'data_mapper_setup'
- # this needs to be done after datamapper is initialised
 
 enable :sessions
 set :session_secret, 'super secret'
@@ -47,7 +46,7 @@ def redirect_to_new_password
 end
 
 def error_message_display
-	flash[:notice] = ['This link is not valid anymore']
+	flash[:notice] = "This link is not valid anymore"
 end
 
 post '/links' do
@@ -78,7 +77,7 @@ post '/sessions' do
     session[:user_id] = user.id
     redirect to('/')
   else
-    flash[:errors] = ["The email or password is incorrect"]
+    flash[:errors] = "The email or password is incorrect"
     erb :"sessions/new"
   end
 end
@@ -89,18 +88,18 @@ post '/recovery' do
 	user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
 	user.password_token_time = Time.now
 	user.save
-	flash[:notice] = ['An email with the instructions to reset the password has been sent.']
+	flash[:notice] = "An email with the instructions to reset the password has been sent."
 end
 
 post '/new_password' do
 	user = User.first(:password_token => params[:token])
 	user.update(:password => params[:password], :password_confirmation => params[:password_confirmation], :password_token => nil)
 	user.save
-	flash[:notice] = ['The password has been changed']
+	flash[:notice] = "The password has been changed"
 end		
 
 delete '/sessions' do
-	flash[:notice] = ['Good bye!']
+	flash[:notice] = "Good bye!"
 	session[:user_id] = nil
 	redirect to('/')
 end	

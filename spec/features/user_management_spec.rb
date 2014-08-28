@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 feature "User signs in" do
-
   before(:each) do
     User.create(:email => "test@test.com", 
       :password => 'test', 
@@ -9,7 +8,6 @@ feature "User signs in" do
       :password_token => '', 
       :password_token_time => '')
   end
-
 
   scenario "with correct credentials" do
     visit '/'
@@ -27,7 +25,6 @@ feature "User signs in" do
 end
 
 feature "User signs out" do
-
   before(:each) do
     User.create(:email => "test@test.com", 
       :password => 'test', 
@@ -47,17 +44,6 @@ end
 
 
 feature "User signs up" do
-
-  # Strictly speaking, the tests that check the UI 
-  # (have_content, etc.) should be separate from the tests 
-  # that check what we have in the DB. The reason is that 
-  # you should test one thing at a time, whereas
-  # by mixing the two we're testing both 
-  # the business logic and the views.
-  #
-  # However, let's not worry about this yet 
-  # to keep the example simple.
-
   scenario "when being logged out" do    
     expect(lambda { sign_up }).to change(User, :count).by(1)    
     expect(page).to have_content("Welcome, alice@example.com")
@@ -75,15 +61,12 @@ feature "User signs up" do
     expect(lambda { sign_up }).to change(User, :count).by(0)
     expect(page).to have_content("This email is already taken")
   end
-
 end
 
 
 feature "User forgets the password" do
-
   scenario 'and visits a page that allows the recovery' do
     visit('/users/reset_password')
     expect(page).to have_content('Please enter your email to recover the password.')
   end
-
 end
