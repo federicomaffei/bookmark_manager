@@ -3,29 +3,40 @@
 <html>
 <head>
 	<title>Bookmark manager</title>
-	<link rel="stylesheet" type="text/css" href="/css/application.css">  
+	<link rel="stylesheet" type="text/css" href="/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/css/application.css">
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<% if current_user %>
-	Welcome, <%= current_user.email %>
-	<form method="post" action="/sessions">
-		<input type="hidden" name="_method" value="delete">
-		<input type="submit" value="Sign out">
-	</form>
-	<% end %>
-	<% if flash[:notice] %>
-	<div id="notice">
-		<%= flash[:notice] %>
-	</div>
-	<% end %>
-	<% if flash[:errors] && !flash[:errors].empty? %>
-	Sorry, there were the following problems with the form.
-	<ul id='errors'>
-		<% flash[:errors].each do |error| %>
-		<li><%= error %></li>
+	<div id='wrapper'>
+		<header>
+			<span id='logo'>bookmark // manager // 1.0</span>
+			<% if current_user %>
+			<span id='user-menu'>
+				Welcome, <%= current_user.email %>
+				<form method="post" action="/sessions">
+					<input type="hidden" name="_method" value="delete">
+					<input type="submit" value="Sign out">
+				</form>
+				/<a href="users/new">sign up</a>/
+				/<a href="sessions/new">sign in</a>/
+			</span>
+			<% end %>
+		</header>
+		<% if flash[:notice] %>
+		<div id="notice">
+			<%= flash[:notice] %>
+		</div>
 		<% end %>
-	</ul>
-	<% end %>
-	<%= yield %>
+		<% if flash[:errors] && !flash[:errors].empty? %>
+		Sorry, there were the following problems with the form.
+		<ul id='errors'>
+			<% flash[:errors].each do |error| %>
+			<li><%= error %></li>
+			<% end %>
+		</ul>
+		<% end %>
+		<%= yield %>
+	</div>
 </body>
 </html>

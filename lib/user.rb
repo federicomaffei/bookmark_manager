@@ -21,22 +21,21 @@ class User
 		self.password_digest = BCrypt::Password.create(password)
 	end
 
-	def self.authenticate(email, password) # that's the user who is trying to sign in
+	def self.authenticate(email, password)
 		user = first(:email => email)
-  		if user && BCrypt::Password.new(user.password_digest) == password # return this user
-  			user
-  		else
-  			nil
-  		end
-  	end
+		if user && BCrypt::Password.new(user.password_digest) == password
+			user
+		else
+			nil
+		end
+	end
 
-  	def send_simple_message
-  		key = ENV["MAILGUN_API_KEY"]
-  		RestClient.post "https://api:#{key}"\
-  		"@api.mailgun.net/v2/app28979029.mailgun.org/messages",
-  		:from => "Mailgun Sandbox <postmaster@app28979029.mailgun.org>",
-  		:to => "Bookmark Manager User <#{email}>",
-  		:subject => "Password recovery link",
-  		:text => "To reset password, visit http://localhost:9393/users/reset_password/#{password_token}"
-  	end
-  end
+	def send_simple_message
+		RestClient.post "https://api:#{ENV["MAILGUN_API_KEY"]}"\
+		"@api.mailgun.net/v2/app28979029.mailgun.org/messages",
+		:from => "Mailgun Sandbox <postmaster@app28979029.mailgun.org>",
+		:to => "Bookmark Manager User <#{email}>",
+		:subject => "Password recovery link",
+		:text => "To reset password, visit http://localhost:9393/users/reset_password/#{password_token}"
+	end
+end
