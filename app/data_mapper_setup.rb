@@ -8,3 +8,4 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark
 
 # After declaring your models, you should finalise them
 DataMapper.finalize
+DataMapper.auto_upgrade!
