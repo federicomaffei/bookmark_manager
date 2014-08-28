@@ -20,7 +20,7 @@ The domain model, as presented to us, can be described as so:
 
 ====================
 
-* The features I implemented via TDD are:
+The features I implemented via TDD are:
 
   1. As a User, when browsing the homepage, I can add a link, complete with tags.
 
@@ -32,7 +32,9 @@ The domain model, as presented to us, can be described as so:
 
   5. As a User, I can sign out.
 
-* The programming languages and technologies I used are:
+====================
+
+The programming languages and technologies I used are:
 
   * Ruby
 
@@ -42,11 +44,13 @@ The domain model, as presented to us, can be described as so:
 
   * Capybara
 
-* How to run the application:
+====================
+
+How to run the application:
 
   * In the browser enter: [http://bkmanager.herokuapp.com/](http://bkmanager.herokuapp.com/)
 
-* How to test the application:
+How to test the application:
 
   * From command line enter:
 ```bash
@@ -54,7 +58,10 @@ git clone git@github.com:federicomaffei/bookmark_manager.git
 cd bookmark_manager
 rspec
 ```
-* Possible future adds to the features:
+
+====================
+
+Possible future adds to the features:
 
  * Add a brief description to each link.
 
