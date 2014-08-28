@@ -27,21 +27,19 @@ The domain model, as presented to us, can be described as so:
 
 * Edit the password
 
+====================
 
+* The features I implemented via TDD are:
 
+  1. As a User, when browsing the homepage, I can add a link, complete with tags.
 
+  2. As a User, when browsing the search page, I can filter the links by tag.
 
-* The feature I implemented via TDD are:
+  3. As a User, I can sign in, and have my credentials checked as email and password.
 
-  1. A Ship object, which contains coordinates, and can be hit and sunk.
+  4. As a User, I can sign up.
 
-  2. A Grid object, which allows the player to see their shots and their ships (if they are defending in that round).
-
-  3. A Coordinate object, which is able to store and translate the coordinates needed to place the ships and target them.
-
-  4. A Player object, which has 5 Ships, 2 Grids and 2 Coordinate systems. A player can be either active or inactive, and can place ships.
-
-  5. A BattleShips object, which has 2 Players, and contains all the application logic and user interaction.
+  5. As a User, I can sign out.
 
 * The programming languages and technologies I used are:
 
@@ -49,25 +47,24 @@ The domain model, as presented to us, can be described as so:
 
   * Rspec
 
+  * Sinatra
+
+  * Capybara
+
 * How to run the application:
 
-  * From command line enter: 
-```bash
-git clone git@github.com:federicomaffei/battleships.git
-cd battleships
-ruby lib/battleships_ruby_app.rb
-```
+  * In the browser enter: [http://bkmanager.herokuapp.com/](http://bkmanager.herokuapp.com/)
 
 * How to test the application:
 
   * From command line enter:
 ```bash
-git clone git@github.com:federicomaffei/battleships.git
-cd battleships
+git clone git@github.com:federicomaffei/bookmark_manager.git
+cd bookmark_manager
 rspec
 ```
 * Possible future adds to the features:
 
-  * Throw exception messages when the user input is not consistent for coordinates and shots.
+ * Add a brief description to each link.
 
-  * Add a choice at each shot so that the user can see the attacking grid only if he/she wants.
+ * Add the chance for the user to review each link, and show overall results.
