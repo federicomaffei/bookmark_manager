@@ -31,6 +31,10 @@ get '/sessions/new' do
 	erb :"sessions/new"
 end
 
+get '/links/new' do
+	erb :"links/new"
+end
+
 get '/users/reset_password' do
 	erb :"users/reset_password"
 end
