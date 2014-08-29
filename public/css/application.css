@@ -8,8 +8,27 @@ header {
 	margin-top: 20px;
 }
 
+footer {
+	display: flex;
+	margin-top: 30px;
+}
+
 form {
 	display: inline;
+}
+
+img {
+	max-width: 200px;
+	height: auto;
+}
+
+#makersacademy-logo {
+	display: inline;
+}
+
+#technologies {
+	display: inline;
+	font-size: 12px;
 }
 
 #wrapper {
@@ -23,9 +42,11 @@ form {
 }
 
 #links-container {
+	margin-top: 30px;
 	padding: 10px;
 	border: 2px solid;
 	border-radius: 25px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
 a {
@@ -82,4 +103,18 @@ a:visited {
 	border:none; 
 	padding:0!important;
 	cursor: pointer;
+}
+
+footer img {
+	vertical-align: top;
+}
+
+footer #technologies {
+	-webkit-flex: 1;
+	flex: 1;
+}
+
+footer p {
+	text-align: right;
+	padding: 5px 0px 5px 50px;
 }

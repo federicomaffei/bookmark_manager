@@ -11,7 +11,7 @@
 	<div id='wrapper'>
 		<header>
 			<span class='left-logo'><a href='/'>bookmark_manager // 1.0</a></span>
-			<span class='add-link menu-link'><a href='/links/new'>--->add a link!</a></span>
+			<span class='add-link menu'><a href='/links/new'>--->add a link!</a></span>
 			<nav>
 				<% if current_user %>
 				<ul class="right-menu">
@@ -46,6 +46,16 @@
 		</ul>
 		<% end %>
 		<%= yield %>
-	</div>
-</body>
-</html>
+		<footer>
+			<span id="makersacademy-logo">
+				<a href="http://www.makersacademy.com/">
+					<img src="http://www.makersacademy.com/images/logo.png">
+				</a>
+			</span>
+			<span id="technologies">
+					<p>I built this page at <a href="http://www.makersacademy.com"> Makers Academy, a highly selective 12 week coding course in London.</a></p><p>This website is built using Ruby, Sinatra, RSpec, Capybara, HTML and CSS.</p>
+				</span>
+			</footer>
+		</div>
+	</body>
+	</html>
