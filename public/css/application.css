@@ -17,6 +17,17 @@ form {
 	margin: 0 auto;
 }
 
+#title {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+#links-container {
+	padding: 10px;
+	border: 2px solid;
+    border-radius: 25px;
+}
+
 a {
 	text-decoration: none;
 }
@@ -33,6 +44,15 @@ a:visited {
 	display: inline;
 	float: left;
 	font-size: 23px;
+}
+
+.link {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.link a.title {
+	font-weight: bold;
 }
 
 .menu-link {

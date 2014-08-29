@@ -1,11 +1,13 @@
 <html>
 <head></head>
 <body>
-	<h2>current links:</h2>
-	<ul>
-		<% @links.each do |link| %>
-		<%= partial :link, :locals => {:link => link}  %>
-		<% end %>
-	</ul>
+	<h2 id='title'>the bookmarks:</h2>
+	<div id='links-container'>
+		<ul>
+			<% @links.each do |link| %>
+			<%= partial :link, :locals => {:link => link}  %>
+			<% end %>
+		</ul>
+	</div>
 </body>
 </html>
