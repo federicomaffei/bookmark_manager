@@ -5,6 +5,7 @@ body {
 header {
 	width: 100%;
 	height: 50px;
+	margin-top: 20px;
 }
 
 form {
@@ -16,17 +17,27 @@ form {
 	margin: 0 auto;
 }
 
-#logo {
-	font-size: 28px;
+a {
+	text-decoration: none;
+}
+
+.left-logo {
+	display: inline;
 	float: left;
 }
 
-#user-menu {
+.menu-link {
 	display: inline;
+}
+
+.right-menu {
 	float: right;
 }
 
-#welcome-message {
-	margin: 0 auto;
+.submit-link {
+	font-family: 'Nunito', sans-serif;
+	background:none!important;
+	border:none; 
+	padding:0!important;
+	cursor: pointer;
 }
-

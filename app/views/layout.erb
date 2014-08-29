@@ -10,18 +10,26 @@
 <body>
 	<div id='wrapper'>
 		<header>
-			<span id='logo'>bookmark // manager // 1.0</span>
-			<% if current_user %>
-			<span id='user-menu'>
-				Welcome, <%= current_user.email %>
-				<form method="post" action="/sessions">
-					<input type="hidden" name="_method" value="delete">
-					<input type="submit" value="Sign out">
-				</form>
-				/<a href="users/new">sign up</a>/
-				/<a href="sessions/new">sign in</a>/
-			</span>
-			<% end %>
+			<span class='left-logo'>bookmark_manager // 1.0</span>
+			<nav>
+				<% if current_user %>
+				<ul class="right-menu">
+					<li class='menu-link'>Welcome, <%= current_user.email %>.</li>
+					<li class='menu-link'>
+						<form method="post" action="/sessions">
+							<input type="hidden" name="_method" value="delete">
+							<input type="submit" class="submit-link" value="Sign out">
+						</form>
+					</li>
+				</ul>
+				<% else %>
+				<ul class="right-menu">
+					<li class='menu-link'>Welcome, unsigned user.</li>
+					<li class='menu-link'><a href="users/new">/ sign up /</a></li>
+					<li class='menu-link'><a href="sessions/new">/ sign in /</a></li> 
+				</ul>
+				<% end %>
+			</nav>
 		</header>
 		<% if flash[:notice] %>
 		<div id="notice">
