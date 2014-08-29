@@ -5,6 +5,7 @@ gem 'dm-postgres-adapter'
 gem 'database_cleaner'
 gem 'capybara'
 gem 'sinatra'
+gem 'sinatra-partial'
 gem 'bcrypt'
 gem 'rack-flash3'
 gem "launchy"

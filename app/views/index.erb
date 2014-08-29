@@ -1,11 +1,10 @@
 <html>
 <head></head>
 <body>
-	<h1>welcome to bookmark manager.</h1>
 	<h2>current links:</h2>
 	<ul>
 		<% @links.each do |link| %>
-		<li><a href="http://<%= link.url %>"><%= link.title %></a></li>
+		<%= partial :link, :locals => {:link => link}  %>
 		<% end %>
 	</ul>
 </body>

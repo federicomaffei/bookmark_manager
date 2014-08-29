@@ -21,17 +21,34 @@ a {
 	text-decoration: none;
 }
 
+a:link {
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
 .left-logo {
 	display: inline;
 	float: left;
+	font-size: 23px;
 }
 
 .menu-link {
 	display: inline;
+	margin-top: 5px;
+}
+
+.add-link {
+	display: inline;
+	float: left;
+	margin-left: 40px;
 }
 
 .right-menu {
 	float: right;
+	margin-top: 5px;
 }
 
 .submit-link {
