@@ -61,7 +61,8 @@ post '/links' do
 	tags = params["tags"].split(" ").map do |tag|
 		Tag.first_or_create(:text => tag)
 	end
-	Link.create(:url => url.gsub('http://', ''), :title => title, :tags => tags)
+	current_user ? created_by = current_user.email : created_by = "unsigned user"
+	Link.create(:url => url.gsub('http://', ''), :title => title, :tags => tags, :created_by => created_by)
 	redirect to('/')
 end
 
