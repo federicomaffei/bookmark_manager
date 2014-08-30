@@ -1,5 +1,12 @@
 require './app/server'
+require 'sprockets'
 
-run Sinatra::Application
+map '/assets' do
+  environment = Sprockets::Environment.new
+  environment.append_path 'app/assets/css'
+  run environment
+end
 
-use Rack::Static, :urls => ['/css', '/javascripts'], :root => 'public'
+map '/' do
+  run Sinatra::Application
+end

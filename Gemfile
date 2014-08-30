@@ -12,6 +12,7 @@ gem "launchy"
 gem "rest-client"
 gem 'dm-timestamps'
 gem 'rack'
+gem 'sprockets'
 
 group :development, :test do
 	gem "rspec"
