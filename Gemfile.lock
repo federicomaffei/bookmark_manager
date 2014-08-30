@@ -117,6 +117,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-timestamps
   launchy
+  rack
   rack-flash3
   rest-client
   rspec

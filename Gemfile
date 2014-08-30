@@ -11,6 +11,7 @@ gem 'rack-flash3'
 gem "launchy"
 gem "rest-client"
 gem 'dm-timestamps'
+gem 'rack'
 
 group :development, :test do
 	gem "rspec"
