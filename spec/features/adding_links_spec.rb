@@ -43,18 +43,30 @@ feature "User adds a new link" do
 		visit "/links/new"
 		add_link("http://www.makersacademy.com/", 
 			"Makers Academy", 
-			['education', 'ruby'])    
+			['education', 'ruby'], "A highly selective 12 week coding course in London.")    
 		link = Link.first
 		expect(link.tags.map(&:text)).to include("education")
 		expect(link.tags.map(&:text)).to include("ruby")
 	end
 
-	def add_link(url, title, tags = [])
+	scenario "with a description" do
+		visit "/links/new"
+		add_link("http://www.makersacademy.com/", 
+			"Makers Academy", 
+			['education', 'ruby'], "A highly selective 12 week coding course in London.")    
+		link = Link.first
+		expect(link.description).to eq "A highly selective 12 week coding course in London."
+	end
+
+
+
+	def add_link(url, title, tags = [], description = "")
 		within('#new-link') do
 			fill_in 'url', :with => url
 			fill_in 'title', :with => title
 			# our tags will be space separated
 			fill_in 'tags', :with => tags.join(' ')
+			fill_in 'description', :with => description
 			click_button 'Add link'
 		end      
 	end

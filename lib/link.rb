@@ -9,6 +9,7 @@ class Link
   property :url,    String
   property :created_by, String
   property :created_on, Date
+  property :description, Text
 
   has n, :tags, :through => Resource
 
