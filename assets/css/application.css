@@ -55,6 +55,14 @@ img {
 	margin-top: 30px;
 }
 
+.flash-container {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding: 10px;
+	border: 2px dashed;
+	border-radius: 25px;
+}
+
 
 a {
 	text-decoration: none;
@@ -75,11 +83,7 @@ a:visited {
 	align-self: flex-end;
 }
 
-.add-link {
-	align-self: flex-end;
-}
-
-.search-tag {
+.header-element {
 	align-self: flex-end;
 }
 
@@ -92,9 +96,6 @@ a:visited {
 	vertical-align: bottom;
 }
 
-.right-menu {
-	align-self: flex-end;
-}
 
 .link {
 	margin-top: 7px;
@@ -112,15 +113,6 @@ a:visited {
 
 .menu-link {
 	display: inline;
-}
-
-.submit-link {
-	font-family: 'Nunito', sans-serif;
-	background:none!important;
-	border:none; 
-	padding:0!important;
-	cursor: pointer;
-	align-self: flex-end;
 }
 
 footer img {

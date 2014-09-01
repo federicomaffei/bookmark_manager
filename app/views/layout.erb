@@ -11,23 +11,23 @@
 	<div id='wrapper'>
 		<header>
 			<span class='left-logo'><a href='/'>bookmark_manager // 1.0</a></span>
-			<span class='add-link'>
-			<a href='/links/new'>--->add a bookmark!</a>
+			<span class='header-element'>
+				<a href='/links/new'>--->add a bookmark!</a>
 			</span>
-			<span class='search-tag'>
+			<span class='header-element'>
 				<form action="/tags" class="header-form" method="post">
 					tag: <input type="text" class="header-search" name="tag">
 					<input type="submit" value="search">
 				</form>
 			</span>
-			<nav class="right-menu">
+			<nav class="header-element">
 				<% if current_user %>
 				<ul>
-					<li class='menu-link'>Welcome, <%= current_user.email %>.</li>
 					<li class='menu-link'>
-						<form method="post" action="/sessions">
+						<form method="post" class="header-form" action="/sessions">
+							Welcome, <%= current_user.email %>.
 							<input type="hidden" name="_method" value="delete">
-							<input type="submit" class="submit-link" value="Sign out">
+							<input type="submit" value="sign out">
 						</form>
 					</li>
 				</ul>
@@ -41,17 +41,19 @@
 			</nav>
 		</header>
 		<% if flash[:notice] %>
-		<div id="notice">
+		<div class="flash-container">
 			<%= flash[:notice] %>
 		</div>
 		<% end %>
 		<% if flash[:errors] && !flash[:errors].empty? %>
-		Sorry, there were the following problems with the form.
-		<ul id='errors'>
-			<% flash[:errors].each do |error| %>
-			<li><%= error %></li>
-			<% end %>
-		</ul>
+		<div class="flash-container">
+			Sorry, there were the following problems with the form.
+			<ul id='errors'>
+				<% flash[:errors].each do |error| %>
+				<li><%= error %></li>
+				<% end %>
+			</ul>
+		</div>
 		<% end %>
 		<%= yield %>
 		<footer>
