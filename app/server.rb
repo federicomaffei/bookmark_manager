@@ -108,7 +108,13 @@ post '/new_password' do
 	user.update(:password => params[:password], :password_confirmation => params[:password_confirmation], :password_token => nil)
 	user.save
 	flash[:notice] = "The password has been changed"
-end		
+end
+
+post '/tags' do
+	tag = Tag.first(:text => params[:tag])
+	@links = tag ? tag.links : []
+	erb :index
+end	
 
 delete '/sessions' do
 	flash[:notice] = "Good bye!"

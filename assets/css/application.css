@@ -34,7 +34,7 @@ img {
 }
 
 #wrapper {
-	width: 900px;
+	width: 1100px;
 	margin: 0 auto;
 }
 
@@ -79,6 +79,19 @@ a:visited {
 	align-self: flex-end;
 }
 
+.search-tag {
+	align-self: flex-end;
+}
+
+.header-search {
+	padding: 0px;
+	margin-bottom: 0px;
+}
+
+.header-form {
+	vertical-align: bottom;
+}
+
 .right-menu {
 	align-self: flex-end;
 }
@@ -107,6 +120,7 @@ a:visited {
 	border:none; 
 	padding:0!important;
 	cursor: pointer;
+	align-self: flex-end;
 }
 
 footer img {

@@ -11,7 +11,15 @@
 	<div id='wrapper'>
 		<header>
 			<span class='left-logo'><a href='/'>bookmark_manager // 1.0</a></span>
-			<span class='add-link menu'><a href='/links/new'>--->add a bookmark!</a></span>
+			<span class='add-link'>
+			<a href='/links/new'>--->add a bookmark!</a>
+			</span>
+			<span class='search-tag'>
+				<form action="/tags" class="header-form" method="post">
+					tag: <input type="text" class="header-search" name="tag">
+					<input type="submit" value="search">
+				</form>
+			</span>
 			<nav class="right-menu">
 				<% if current_user %>
 				<ul>
@@ -53,9 +61,9 @@
 				</a>
 			</span>
 			<span id="technologies">
-					<p>I built this page at <a href="http://www.makersacademy.com"> Makers Academy, a highly selective 12 week coding course in London.</a></p><p>This website is built using Ruby, Sinatra, RSpec, Capybara, HTML and CSS.</p>
-				</span>
-			</footer>
-		</div>
-	</body>
-	</html>
+				<p>I built this page at <a href="http://www.makersacademy.com"> Makers Academy, a highly selective 12 week coding course in London.</a></p><p>This website is built using Ruby, Sinatra, RSpec, Capybara, HTML and CSS.</p>
+			</span>
+		</footer>
+	</div>
+</body>
+</html>

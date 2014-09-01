@@ -32,7 +32,7 @@ feature "User adds a new link" do
 
 
 	def add_link(url, title)
-		within('#new-link') do
+		within('#form-container') do
 			fill_in 'url', :with => url
 			fill_in 'title', :with => title
 			click_button 'Add link'
@@ -61,7 +61,7 @@ feature "User adds a new link" do
 
 
 	def add_link(url, title, tags = [], description = "")
-		within('#new-link') do
+		within('#form-container') do
 			fill_in 'url', :with => url
 			fill_in 'title', :with => title
 			# our tags will be space separated

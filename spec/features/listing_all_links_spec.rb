@@ -29,4 +29,17 @@ feature "User browses the list of links" do
 		expect(page).not_to have_content("Google")
 		expect(page).not_to have_content("Bing")
 	end
+
+	scenario "searching for a tag on home page" do
+		visit '/'
+		within('.header-form') do
+			fill_in 'tag', with: 'education'
+			click_button 'search'
+		end
+		expect(current_path).to eq '/tags'
+		expect(page).to have_content("Makers Academy")
+		expect(page).to have_content("Code.org")
+		expect(page).not_to have_content("Google")
+		expect(page).not_to have_content("Bing")
+	end
 end

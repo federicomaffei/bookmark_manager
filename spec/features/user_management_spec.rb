@@ -67,6 +67,6 @@ end
 feature "User forgets the password" do
   scenario 'and visits a page that allows the recovery' do
     visit('/users/reset_password')
-    expect(page).to have_content('Please enter your email to recover the password.')
+    expect(page).to have_content('please enter your email to recover the password.')
   end
 end
