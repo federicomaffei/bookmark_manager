@@ -2,7 +2,7 @@ Bookmark Manager
 ====================
 
 Bookmark Manager is the Week 6 project I worked on at [Makers Academy](http://www.makersacademy.com).
-The main aim of the project is creating a to build a bookmark manager service, similar to [pineapple.io](pineapple.io) or [delicious.com](delicious.com) in spirit.
+The main aim of the project is to build a bookmark manager service, similar to [pineapple.io](pineapple.io) or [delicious.com](delicious.com) in spirit.
 
 The domain model, as presented to us, can be described as so:
 
