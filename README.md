@@ -20,39 +20,39 @@ The domain model, as presented to us, can be described as so:
 
 ====================
 
-The features I implemented via TDD are:
+##The features I implemented via TDD are:
 
-  1. As a User, when browsing the homepage, I can add a link, complete with tags.
+1. As a User, when browsing the homepage, I can add a link, complete with tags.
 
-  2. As a User, when browsing the search page, I can filter the links by tag.
+2. As a User, when browsing the search page, I can filter the links by tag.
 
-  3. As a User, I can sign in, and have my credentials checked as email and password.
+3. As a User, I can sign in, and have my credentials checked as email and password.
 
-  4. As a User, I can sign up.
+4. As a User, I can sign up.
 
-  5. As a User, I can sign out.
-
-====================
-
-The programming languages and technologies I used are:
-
-  * Ruby
-
-  * Rspec
-
-  * Sinatra
-
-  * Capybara
+5. As a User, I can sign out.
 
 ====================
 
-How to run the application:
+###The programming languages and technologies I used are:
 
-  * In the browser enter: [http://bkmanager.herokuapp.com/](http://bkmanager.herokuapp.com/)
+* Ruby
 
-How to test the application:
+* Rspec
 
-  * From command line enter:
+* Sinatra
+
+* Capybara
+
+====================
+
+###How to run the application:
+
+* In the browser enter: [http://bkmanager.herokuapp.com/](http://bkmanager.herokuapp.com/)
+
+###How to test the application:
+
+* From command line enter:
 ```bash
 git clone git@github.com:federicomaffei/bookmark_manager.git
 cd bookmark_manager
@@ -61,8 +61,8 @@ rspec
 
 ====================
 
-Possible future adds to the features:
+###Possible future adds to the features:
 
- * Add a brief description to each link.
+* Add a brief description to each link.
 
- * Add the chance for the user to review each link, and show overall results.
+* Add the chance for the user to review each link, and show overall results.
