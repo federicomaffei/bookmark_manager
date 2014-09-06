@@ -4,6 +4,8 @@ Bookmark Manager
 Bookmark Manager is the Week 6 project I worked on at [Makers Academy](http://www.makersacademy.com).
 The main aim of the project is to build a bookmark manager service, similar to [pineapple.io](pineapple.io) or [delicious.com](delicious.com) in spirit.
 
+![BOOKMARK](https://dl.dropboxusercontent.com/u/9315601/bookmark.png)
+
 The domain model, as presented to us, can be described as so:
 
 >We are going to build a bookmark manager, similar to pineapple.io or delicious.com in spirit. A bookmark manager is a good use case for exploring how relational databases work.
